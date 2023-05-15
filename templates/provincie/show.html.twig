@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container mt-3">
+        <h1>Provincies in Nederland</h1>
+        <h4>Provincie naam</h4>
+        <table class="table">
+            <tbody>
+            {% for provincie in provincies %}
+                <tr>
+                    <td> {{ provincie.name }}</td>
+                    <td>
+                        <a href="{{ path('cities', {'id': provincie.id}) }}">
+                            <button class="btn btn-success">
+                                Steden
+                            </button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('update', {'id': provincie.id}) }}">
+                            <button class="btn btn-warning">
+                                Update
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('insert') }}">
+            <button class="btn btn-info">
+                insert
+            </button>
+        </a>
+    </div>
+{% endblock %}

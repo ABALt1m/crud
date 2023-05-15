@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container">
+    <h1>Steden van de provincie {{ provincie.name }}</h1>
+    <table class="table">
+        <tbody>
+        {% for city in provincie.cities %}
+            <tr>
+                <td> {{ city.name }}</td>
+                <td>
+                    <a href="{{ path('delete', {'id': city.id}) }}">
+                        <button class="btn btn-danger">
+                            Delete
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
